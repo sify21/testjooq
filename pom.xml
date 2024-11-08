@@ -68,7 +68,13 @@
                             <name>org.jooq.meta.postgres.PostgresDatabase</name>
                             <includes>.*</includes>
                             <inputSchema>public</inputSchema>
-                            <forcedTypes />
+                            <forcedTypes>
+                                <!--<forcedType>-->
+                                    <!--<name>dressing</name>-->
+                                    <!--<userType>java.util.List&lt;com.test.db.udt.records.DressingRecord&gt;</userType>-->
+                                    <!--<includeExpression>merge_person\.RETURN_VALUE</includeExpression>-->
+                                <!--</forcedType>-->
+                            </forcedTypes>
                         </database>
                         <generate />
                         <target>

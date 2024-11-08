@@ -10,8 +10,8 @@ import org.jooq.Result;
 import org.jooq.SQLDialect;
 import org.jooq.impl.DSL;
 
-import com.test.db.Routines;
 import com.test.db.tables.records.MergePersonRecord;
+import com.test.db.Routines;
 import com.test.db.udt.records.DressingRecord;
 
 /**

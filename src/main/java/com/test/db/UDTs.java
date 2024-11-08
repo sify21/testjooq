@@ -10,7 +10,7 @@ import com.test.db.udt.Dressing;
 /**
  * Convenience access to all UDTs in public.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class UDTs {
 
     /**
