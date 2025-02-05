@@ -7,15 +7,13 @@
     <version>1.0-SNAPSHOT</version>
 
     <name>testjooq</name>
-    <!-- FIXME change it to the project's website -->
-    <url>http://www.example.com</url>
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <maven.compiler.release>21</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <jooq.version>3.19.14</jooq.version>
+        <jooq.version>3.20.0-SNAPSHOT</jooq.version>
         <postgresql.version>42.7.4</postgresql.version>
     </properties>
 
@@ -69,11 +67,11 @@
                             <includes>.*</includes>
                             <inputSchema>public</inputSchema>
                             <forcedTypes>
-                                <!--<forcedType>-->
-                                    <!--<name>dressing</name>-->
-                                    <!--<userType>java.util.List&lt;com.test.db.udt.records.DressingRecord&gt;</userType>-->
-                                    <!--<includeExpression>merge_person\.RETURN_VALUE</includeExpression>-->
-                                <!--</forcedType>-->
+                                <forcedType>
+                                    <userType>java.util.List&lt;com.test.db.udt.records.DressingRecord&gt;</userType>
+                                    <jsonConverter>true</jsonConverter>
+                                    <includeExpression>merge_person\.RETURN_VALUE</includeExpression>
+                                </forcedType>
                             </forcedTypes>
                         </database>
                         <generate />

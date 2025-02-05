@@ -6,7 +6,6 @@ package com.test.db;
 
 import com.test.db.tables.MergePerson;
 import com.test.db.tables.Person;
-import com.test.db.tables.records.MergePersonRecord;
 import com.test.db.udt.records.DressingRecord;
 
 import org.jooq.Configuration;
@@ -28,7 +27,7 @@ public class Tables {
     /**
      * Call <code>public.merge_person</code>.
      */
-    public static Result<MergePersonRecord> MERGE_PERSON(
+    public static Result<DressingRecord> MERGE_PERSON(
           Configuration configuration
         , DressingRecord[] arr
     ) {

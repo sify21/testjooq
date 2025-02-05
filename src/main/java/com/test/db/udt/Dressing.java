@@ -60,7 +60,7 @@ public class Dressing extends UDTImpl<DressingRecord> {
      * No further instances allowed
      */
     private Dressing() {
-        super(DSL.name("dressing"), null, null, false);
+        super(DSL.name("dressing"), null, null, DSL.comment(""), false);
     }
 
     @Override

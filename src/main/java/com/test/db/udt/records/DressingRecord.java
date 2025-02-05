@@ -94,6 +94,6 @@ public class DressingRecord extends UDTRecordImpl<DressingRecord> {
         setName(name);
         setAge(age);
         setCostume(costume);
-        resetChangedOnNotNull();
+        resetTouchedOnNotNull();
     }
 }

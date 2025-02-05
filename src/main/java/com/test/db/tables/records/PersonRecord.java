@@ -89,6 +89,6 @@ public class PersonRecord extends UpdatableRecordImpl<PersonRecord> {
         setId(id);
         setName(name);
         setAge(age);
-        resetChangedOnNotNull();
+        resetTouchedOnNotNull();
     }
 }
