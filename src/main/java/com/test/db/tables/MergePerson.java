@@ -10,6 +10,7 @@ import com.test.db.udt.records.DressingRecord;
 
 import org.jooq.Condition;
 import org.jooq.Field;
+import org.jooq.JSONB;
 import org.jooq.Name;
 import org.jooq.Schema;
 import org.jooq.Table;
@@ -55,6 +56,11 @@ public class MergePerson extends TableImpl<DressingRecord> {
      * The column <code>public.merge_person.age</code>.
      */
     public final TableField<DressingRecord, Integer> AGE = createField(DSL.name("age"), SQLDataType.INTEGER, this, "");
+
+    /**
+     * The column <code>public.merge_person.address</code>.
+     */
+    public final TableField<DressingRecord, JSONB> ADDRESS = createField(DSL.name("address"), SQLDataType.JSONB, this, "");
 
     /**
      * The column <code>public.merge_person.costume</code>.

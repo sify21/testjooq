@@ -4,7 +4,10 @@
 package com.test.db.udt.records;
 
 
+import com.test.Address;
 import com.test.db.udt.Dressing;
+
+import java.util.List;
 
 import org.jooq.impl.UDTRecordImpl;
 
@@ -60,17 +63,31 @@ public class DressingRecord extends UDTRecordImpl<DressingRecord> {
     }
 
     /**
+     * Setter for <code>public.dressing.address</code>.
+     */
+    public void setAddress(List<Address> value) {
+        set(3, value);
+    }
+
+    /**
+     * Getter for <code>public.dressing.address</code>.
+     */
+    public List<Address> getAddress() {
+        return (List<Address>) get(3);
+    }
+
+    /**
      * Setter for <code>public.dressing.costume</code>.
      */
     public void setCostume(String value) {
-        set(3, value);
+        set(4, value);
     }
 
     /**
      * Getter for <code>public.dressing.costume</code>.
      */
     public String getCostume() {
-        return (String) get(3);
+        return (String) get(4);
     }
 
     // -------------------------------------------------------------------------
@@ -87,12 +104,13 @@ public class DressingRecord extends UDTRecordImpl<DressingRecord> {
     /**
      * Create a detached, initialised DressingRecord
      */
-    public DressingRecord(Long id, String name, Integer age, String costume) {
+    public DressingRecord(Long id, String name, Integer age, List<Address> address, String costume) {
         super(Dressing.DRESSING);
 
         setId(id);
         setName(name);
         setAge(age);
+        setAddress(address);
         setCostume(costume);
         resetTouchedOnNotNull();
     }

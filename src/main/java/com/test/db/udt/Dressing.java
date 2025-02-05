@@ -4,8 +4,11 @@
 package com.test.db.udt;
 
 
+import com.test.Address;
 import com.test.db.Public;
 import com.test.db.udt.records.DressingRecord;
+
+import java.util.List;
 
 import org.jooq.Schema;
 import org.jooq.UDTField;
@@ -13,6 +16,7 @@ import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.SchemaImpl;
 import org.jooq.impl.UDTImpl;
+import org.jooq.jackson.extensions.converters.JSONBtoJacksonConverter;
 
 
 /**
@@ -50,6 +54,11 @@ public class Dressing extends UDTImpl<DressingRecord> {
      * The attribute <code>public.dressing.age</code>.
      */
     public static final UDTField<DressingRecord, Integer> AGE = createField(DSL.name("age"), SQLDataType.INTEGER, DRESSING, "");
+
+    /**
+     * The attribute <code>public.dressing.address</code>.
+     */
+    public static final UDTField<DressingRecord, List<Address>> ADDRESS = createField(DSL.name("address"), SQLDataType.JSONB, DRESSING, "", new JSONBtoJacksonConverter<List<Address>>((Class<List<Address>>) (Class) List.class));
 
     /**
      * The attribute <code>public.dressing.costume</code>.

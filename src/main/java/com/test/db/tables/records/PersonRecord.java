@@ -4,7 +4,10 @@
 package com.test.db.tables.records;
 
 
+import com.test.Address;
 import com.test.db.tables.Person;
+
+import java.util.List;
 
 import org.jooq.Record1;
 import org.jooq.impl.UpdatableRecordImpl;
@@ -60,6 +63,20 @@ public class PersonRecord extends UpdatableRecordImpl<PersonRecord> {
         return (Integer) get(2);
     }
 
+    /**
+     * Setter for <code>public.person.address</code>.
+     */
+    public void setAddress(List<Address> value) {
+        set(3, value);
+    }
+
+    /**
+     * Getter for <code>public.person.address</code>.
+     */
+    public List<Address> getAddress() {
+        return (List<Address>) get(3);
+    }
+
     // -------------------------------------------------------------------------
     // Primary key information
     // -------------------------------------------------------------------------
@@ -83,12 +100,13 @@ public class PersonRecord extends UpdatableRecordImpl<PersonRecord> {
     /**
      * Create a detached, initialised PersonRecord
      */
-    public PersonRecord(Long id, String name, Integer age) {
+    public PersonRecord(Long id, String name, Integer age, List<Address> address) {
         super(Person.PERSON);
 
         setId(id);
         setName(name);
         setAge(age);
+        setAddress(address);
         resetTouchedOnNotNull();
     }
 }

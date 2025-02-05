@@ -4,8 +4,11 @@
 package com.test.db.udt.paths;
 
 
+import com.test.Address;
 import com.test.db.udt.Dressing;
 import com.test.db.udt.records.DressingRecord;
+
+import java.util.List;
 
 import org.jooq.Binding;
 import org.jooq.Comment;
@@ -18,6 +21,7 @@ import org.jooq.impl.DSL;
 import org.jooq.impl.Internal;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.UDTPathTableFieldImpl;
+import org.jooq.jackson.extensions.converters.JSONBtoJacksonConverter;
 
 
 /**
@@ -42,6 +46,11 @@ public class DressingPath<R extends Record, T> extends UDTPathTableFieldImpl<R, 
      * The attribute <code>public.dressing.age</code>.
      */
     public final UDTField<DressingRecord, Integer> AGE = Internal.createUDTPathField(DSL.name("age"), SQLDataType.INTEGER, this, "", UDTField.class);
+
+    /**
+     * The attribute <code>public.dressing.address</code>.
+     */
+    public final UDTField<DressingRecord, List<Address>> ADDRESS = Internal.createUDTPathField(DSL.name("address"), SQLDataType.JSONB, this, "", UDTField.class, new JSONBtoJacksonConverter<List<Address>>((Class<List<Address>>) (Class) List.class));
 
     /**
      * The attribute <code>public.dressing.costume</code>.

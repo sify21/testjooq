@@ -68,9 +68,9 @@
                             <inputSchema>public</inputSchema>
                             <forcedTypes>
                                 <forcedType>
-                                    <userType>java.util.List&lt;com.test.db.udt.records.DressingRecord&gt;</userType>
+                                    <userType>java.util.List&lt;com.test.Address&gt;</userType>
                                     <jsonConverter>true</jsonConverter>
-                                    <includeExpression>merge_person\.RETURN_VALUE</includeExpression>
+                                    <includeExpression>(person|dressing)\.address</includeExpression>
                                 </forcedType>
                             </forcedTypes>
                         </database>

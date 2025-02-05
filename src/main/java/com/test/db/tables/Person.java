@@ -4,6 +4,7 @@
 package com.test.db.tables;
 
 
+import com.test.Address;
 import com.test.db.Keys;
 import com.test.db.Public;
 import com.test.db.tables.records.PersonRecord;
@@ -29,6 +30,7 @@ import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
+import org.jooq.jackson.extensions.converters.JSONBtoJacksonConverter;
 
 
 /**
@@ -66,6 +68,11 @@ public class Person extends TableImpl<PersonRecord> {
      * The column <code>public.person.age</code>.
      */
     public final TableField<PersonRecord, Integer> AGE = createField(DSL.name("age"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>public.person.address</code>.
+     */
+    public final TableField<PersonRecord, List<Address>> ADDRESS = createField(DSL.name("address"), SQLDataType.JSONB, this, "", new JSONBtoJacksonConverter<List<Address>>((Class<List<Address>>) (Class) List.class));
 
     private Person(Name alias, Table<PersonRecord> aliased) {
         this(alias, aliased, (Field<?>[]) null, null);
