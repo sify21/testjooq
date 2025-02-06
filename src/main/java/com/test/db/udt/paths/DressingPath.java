@@ -50,7 +50,17 @@ public class DressingPath<R extends Record, T> extends UDTPathTableFieldImpl<R, 
     /**
      * The attribute <code>public.dressing.address</code>.
      */
-    public final UDTField<DressingRecord, List<Address>> ADDRESS = Internal.createUDTPathField(DSL.name("address"), SQLDataType.JSONB, this, "", UDTField.class, new JSONBtoJacksonConverter<List<Address>>((Class<List<Address>>) (Class) List.class));
+    public final UDTField<DressingRecord, Address> ADDRESS = Internal.createUDTPathField(DSL.name("address"), SQLDataType.JSONB, this, "", UDTField.class, new JSONBtoJacksonConverter<Address>(Address.class));
+
+    /**
+     * The attribute <code>public.dressing.address_vec</code>.
+     */
+    public final UDTField<DressingRecord, Address[]> ADDRESS_VEC = Internal.createUDTPathField(DSL.name("address_vec"), SQLDataType.JSONB, this, "", UDTField.class, new JSONBtoJacksonConverter<Address[]>(Address[].class));
+
+    /**
+     * The attribute <code>public.dressing.address_list</code>.
+     */
+    public final UDTField<DressingRecord, List<Address>> ADDRESS_LIST = Internal.createUDTPathField(DSL.name("address_list"), SQLDataType.JSONB, this, "", UDTField.class, new JSONBtoJacksonConverter<List<Address>>((Class<List<Address>>) (Class) List.class));
 
     /**
      * The attribute <code>public.dressing.costume</code>.

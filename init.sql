@@ -3,6 +3,8 @@ create table person (
     name varchar(50) not null,
     age int not null,
     address jsonb,
+    address_vec jsonb,
+    address_list jsonb,
     unique(name)
 );
 
@@ -11,6 +13,8 @@ create type dressing as (
     name varchar(50),
     age int,
     address jsonb,
+    address_vec jsonb,
+    address_list jsonb,
     costume varchar(50)
 );
 
@@ -19,7 +23,7 @@ $$
 DECLARE x dressing;
 BEGIN
     FOREACH x IN ARRAY arr LOOP
-        return query insert into person(name, age, address) values (x.name, x.age, x.address) on conflict (name) do update set age=x.age, address=x.address returning id,name,age,address,x.costume;
+        return query insert into person(name, age, address, address_vec, address_list) values (x.name, x.age, x.address, x.address_vec, x.address_list) on conflict (name) do update set age=x.age, address=x.address, address_vec=x.address_vec, address_list=x.address_list returning id,name,age,address,address_vec,address_list,x.costume;
     END LOOP;
     RETURN;
 END;

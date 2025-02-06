@@ -72,7 +72,17 @@ public class Person extends TableImpl<PersonRecord> {
     /**
      * The column <code>public.person.address</code>.
      */
-    public final TableField<PersonRecord, List<Address>> ADDRESS = createField(DSL.name("address"), SQLDataType.JSONB, this, "", new JSONBtoJacksonConverter<List<Address>>((Class<List<Address>>) (Class) List.class));
+    public final TableField<PersonRecord, Address> ADDRESS = createField(DSL.name("address"), SQLDataType.JSONB, this, "", new JSONBtoJacksonConverter<Address>(Address.class));
+
+    /**
+     * The column <code>public.person.address_vec</code>.
+     */
+    public final TableField<PersonRecord, Address[]> ADDRESS_VEC = createField(DSL.name("address_vec"), SQLDataType.JSONB, this, "", new JSONBtoJacksonConverter<Address[]>(Address[].class));
+
+    /**
+     * The column <code>public.person.address_list</code>.
+     */
+    public final TableField<PersonRecord, List<Address>> ADDRESS_LIST = createField(DSL.name("address_list"), SQLDataType.JSONB, this, "", new JSONBtoJacksonConverter<List<Address>>((Class<List<Address>>) (Class) List.class));
 
     private Person(Name alias, Table<PersonRecord> aliased) {
         this(alias, aliased, (Field<?>[]) null, null);

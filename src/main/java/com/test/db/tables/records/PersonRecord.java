@@ -66,15 +66,43 @@ public class PersonRecord extends UpdatableRecordImpl<PersonRecord> {
     /**
      * Setter for <code>public.person.address</code>.
      */
-    public void setAddress(List<Address> value) {
+    public void setAddress(Address value) {
         set(3, value);
     }
 
     /**
      * Getter for <code>public.person.address</code>.
      */
-    public List<Address> getAddress() {
-        return (List<Address>) get(3);
+    public Address getAddress() {
+        return (Address) get(3);
+    }
+
+    /**
+     * Setter for <code>public.person.address_vec</code>.
+     */
+    public void setAddressVec(Address[] value) {
+        set(4, value);
+    }
+
+    /**
+     * Getter for <code>public.person.address_vec</code>.
+     */
+    public Address[] getAddressVec() {
+        return (Address[]) get(4);
+    }
+
+    /**
+     * Setter for <code>public.person.address_list</code>.
+     */
+    public void setAddressList(List<Address> value) {
+        set(5, value);
+    }
+
+    /**
+     * Getter for <code>public.person.address_list</code>.
+     */
+    public List<Address> getAddressList() {
+        return (List<Address>) get(5);
     }
 
     // -------------------------------------------------------------------------
@@ -100,13 +128,15 @@ public class PersonRecord extends UpdatableRecordImpl<PersonRecord> {
     /**
      * Create a detached, initialised PersonRecord
      */
-    public PersonRecord(Long id, String name, Integer age, List<Address> address) {
+    public PersonRecord(Long id, String name, Integer age, Address address, Address[] addressVec, List<Address> addressList) {
         super(Person.PERSON);
 
         setId(id);
         setName(name);
         setAge(age);
         setAddress(address);
+        setAddressVec(addressVec);
+        setAddressList(addressList);
         resetTouchedOnNotNull();
     }
 }

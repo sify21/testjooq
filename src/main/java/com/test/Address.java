@@ -1,15 +1,25 @@
 package com.test;
 
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class Address {
     private String state;
     private String street;
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
+    private OffsetDateTime builtTime;
 
     public Address() {
     }
 
-    public Address(String state, String street) {
+    public Address(String state, String street, OffsetDateTime builtTime) {
         this.state = state;
         this.street = street;
+        this.builtTime = builtTime;
     }
 
     public String getState() {

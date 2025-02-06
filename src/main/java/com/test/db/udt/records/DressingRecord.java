@@ -65,29 +65,57 @@ public class DressingRecord extends UDTRecordImpl<DressingRecord> {
     /**
      * Setter for <code>public.dressing.address</code>.
      */
-    public void setAddress(List<Address> value) {
+    public void setAddress(Address value) {
         set(3, value);
     }
 
     /**
      * Getter for <code>public.dressing.address</code>.
      */
-    public List<Address> getAddress() {
-        return (List<Address>) get(3);
+    public Address getAddress() {
+        return (Address) get(3);
+    }
+
+    /**
+     * Setter for <code>public.dressing.address_vec</code>.
+     */
+    public void setAddressVec(Address[] value) {
+        set(4, value);
+    }
+
+    /**
+     * Getter for <code>public.dressing.address_vec</code>.
+     */
+    public Address[] getAddressVec() {
+        return (Address[]) get(4);
+    }
+
+    /**
+     * Setter for <code>public.dressing.address_list</code>.
+     */
+    public void setAddressList(List<Address> value) {
+        set(5, value);
+    }
+
+    /**
+     * Getter for <code>public.dressing.address_list</code>.
+     */
+    public List<Address> getAddressList() {
+        return (List<Address>) get(5);
     }
 
     /**
      * Setter for <code>public.dressing.costume</code>.
      */
     public void setCostume(String value) {
-        set(4, value);
+        set(6, value);
     }
 
     /**
      * Getter for <code>public.dressing.costume</code>.
      */
     public String getCostume() {
-        return (String) get(4);
+        return (String) get(6);
     }
 
     // -------------------------------------------------------------------------
@@ -104,13 +132,15 @@ public class DressingRecord extends UDTRecordImpl<DressingRecord> {
     /**
      * Create a detached, initialised DressingRecord
      */
-    public DressingRecord(Long id, String name, Integer age, List<Address> address, String costume) {
+    public DressingRecord(Long id, String name, Integer age, Address address, Address[] addressVec, List<Address> addressList, String costume) {
         super(Dressing.DRESSING);
 
         setId(id);
         setName(name);
         setAge(age);
         setAddress(address);
+        setAddressVec(addressVec);
+        setAddressList(addressList);
         setCostume(costume);
         resetTouchedOnNotNull();
     }

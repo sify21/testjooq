@@ -58,7 +58,17 @@ public class Dressing extends UDTImpl<DressingRecord> {
     /**
      * The attribute <code>public.dressing.address</code>.
      */
-    public static final UDTField<DressingRecord, List<Address>> ADDRESS = createField(DSL.name("address"), SQLDataType.JSONB, DRESSING, "", new JSONBtoJacksonConverter<List<Address>>((Class<List<Address>>) (Class) List.class));
+    public static final UDTField<DressingRecord, Address> ADDRESS = createField(DSL.name("address"), SQLDataType.JSONB, DRESSING, "", new JSONBtoJacksonConverter<Address>(Address.class));
+
+    /**
+     * The attribute <code>public.dressing.address_vec</code>.
+     */
+    public static final UDTField<DressingRecord, Address[]> ADDRESS_VEC = createField(DSL.name("address_vec"), SQLDataType.JSONB, DRESSING, "", new JSONBtoJacksonConverter<Address[]>(Address[].class));
+
+    /**
+     * The attribute <code>public.dressing.address_list</code>.
+     */
+    public static final UDTField<DressingRecord, List<Address>> ADDRESS_LIST = createField(DSL.name("address_list"), SQLDataType.JSONB, DRESSING, "", new JSONBtoJacksonConverter<List<Address>>((Class<List<Address>>) (Class) List.class));
 
     /**
      * The attribute <code>public.dressing.costume</code>.

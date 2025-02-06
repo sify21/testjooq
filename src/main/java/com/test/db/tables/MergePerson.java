@@ -63,6 +63,16 @@ public class MergePerson extends TableImpl<DressingRecord> {
     public final TableField<DressingRecord, JSONB> ADDRESS = createField(DSL.name("address"), SQLDataType.JSONB, this, "");
 
     /**
+     * The column <code>public.merge_person.address_vec</code>.
+     */
+    public final TableField<DressingRecord, JSONB> ADDRESS_VEC = createField(DSL.name("address_vec"), SQLDataType.JSONB, this, "");
+
+    /**
+     * The column <code>public.merge_person.address_list</code>.
+     */
+    public final TableField<DressingRecord, JSONB> ADDRESS_LIST = createField(DSL.name("address_list"), SQLDataType.JSONB, this, "");
+
+    /**
      * The column <code>public.merge_person.costume</code>.
      */
     public final TableField<DressingRecord, String> COSTUME = createField(DSL.name("costume"), SQLDataType.VARCHAR(50), this, "");
