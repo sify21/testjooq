@@ -13,6 +13,11 @@ public class Address {
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private OffsetDateTime builtTime;
 
+    @Override
+    public String toString() {
+        return "{state=%s, street=%s, builtTime=%s}".formatted(state, street, builtTime);
+    }
+
     public Address() {
     }
 

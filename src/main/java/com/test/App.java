@@ -44,13 +44,10 @@ public class App {
             DressingRecord[] records = new DressingRecord[] { d1, d2 };
             Result<DressingRecord> result = create.selectFrom(Routines.mergePerson(records)).fetch();
             System.out.println(result);
-            System.out.println("This is ok: ");
-            for (DressingRecord d : result) {
-                System.out.println(d.get(Dressing.ADDRESS, Address.class));
-            }
-            System.out.println("This errors: ");
             for (DressingRecord d : result) {
                 System.out.println(d.getAddress());
+                System.out.println(Arrays.toString(d.getAddressVec()));
+                System.out.println(d.getAddressList());
             }
         }
     }

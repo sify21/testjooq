@@ -70,17 +70,17 @@
                                 <forcedType>
                                     <userType>com.test.Address</userType>
                                     <jsonConverter>true</jsonConverter>
-                                    <includeExpression>(person|dressing)\.address</includeExpression>
+                                    <includeExpression>(merge_person|person|dressing)\.address</includeExpression>
                                 </forcedType>
                                 <forcedType>
                                     <userType>com.test.Address[]</userType>
                                     <jsonConverter>true</jsonConverter>
-                                    <includeExpression>(person|dressing)\.address_vec</includeExpression>
+                                    <includeExpression>(merge_person|person|dressing)\.address_vec</includeExpression>
                                 </forcedType>
                                 <forcedType>
                                     <userType>java.util.List&lt;com.test.Address&gt;</userType>
                                     <jsonConverter>true</jsonConverter>
-                                    <includeExpression>(person|dressing)\.address_list</includeExpression>
+                                    <includeExpression>(merge_person|person|dressing)\.address_list</includeExpression>
                                 </forcedType>
                             </forcedTypes>
                         </database>

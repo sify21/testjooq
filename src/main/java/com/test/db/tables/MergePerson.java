@@ -4,13 +4,15 @@
 package com.test.db.tables;
 
 
+import com.test.Address;
 import com.test.db.Public;
 import com.test.db.udt.Dressing;
 import com.test.db.udt.records.DressingRecord;
 
+import java.util.List;
+
 import org.jooq.Condition;
 import org.jooq.Field;
-import org.jooq.JSONB;
 import org.jooq.Name;
 import org.jooq.Schema;
 import org.jooq.Table;
@@ -19,6 +21,7 @@ import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
+import org.jooq.jackson.extensions.converters.JSONBtoJacksonConverter;
 
 
 /**
@@ -60,17 +63,17 @@ public class MergePerson extends TableImpl<DressingRecord> {
     /**
      * The column <code>public.merge_person.address</code>.
      */
-    public final TableField<DressingRecord, JSONB> ADDRESS = createField(DSL.name("address"), SQLDataType.JSONB, this, "");
+    public final TableField<DressingRecord, Address> ADDRESS = createField(DSL.name("address"), SQLDataType.JSONB, this, "", new JSONBtoJacksonConverter<Address>(Address.class));
 
     /**
      * The column <code>public.merge_person.address_vec</code>.
      */
-    public final TableField<DressingRecord, JSONB> ADDRESS_VEC = createField(DSL.name("address_vec"), SQLDataType.JSONB, this, "");
+    public final TableField<DressingRecord, Address[]> ADDRESS_VEC = createField(DSL.name("address_vec"), SQLDataType.JSONB, this, "", new JSONBtoJacksonConverter<Address[]>(Address[].class));
 
     /**
      * The column <code>public.merge_person.address_list</code>.
      */
-    public final TableField<DressingRecord, JSONB> ADDRESS_LIST = createField(DSL.name("address_list"), SQLDataType.JSONB, this, "");
+    public final TableField<DressingRecord, List<Address>> ADDRESS_LIST = createField(DSL.name("address_list"), SQLDataType.JSONB, this, "", new JSONBtoJacksonConverter<List<Address>>((Class<List<Address>>) (Class) List.class));
 
     /**
      * The column <code>public.merge_person.costume</code>.
